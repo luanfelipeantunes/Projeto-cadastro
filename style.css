@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+
+@font-face {
+    font-family: 'fonteImportada';
+    src: url('https://fonts.googleapis.com/css2?family=Mooli&family=Ysabeau+Infant:ital,wght@0,200;0,300;1,300;1,600;1,700;1,800&display=swap');
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #038c3ead;
+}
+
+header>h1{
+    text-align: center;
+    background-color: #034159;
+    padding: 10px;
+    margin: auto;
+    width: 600px;
+    margin-top: 20px;
+    box-shadow: 2px 2px 4px black;
+    color: aliceblue;
+    text-shadow: 2px 2px 4px rgb(29, 29, 29);
+}
+
+main{
+    position: relative;
+    background-color: #025950ea;
+    height: 600px;
+    width: 600px;
+    margin: auto;
+    box-shadow: 2px 2px 4px black;
+    border-radius: 20px;
+}
+
+main>h2{
+    text-align: center;
+    font-size: 30pt;
+    padding: 20px;
+    font-family: fonteImportada;
+}
+
+form{
+    margin-top: 80px;
+}
+
+label{
+    font-size: 25px;
+    display: block;
+    background-color: #038C3E;
+    width: 400px;
+    height: 40px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+span{
+    position: relative;
+    top: 5px;
+    left: 10px;
+    font-weight: 500;
+}
+
+input{
+    float: right;
+    font-size: 20px;
+    height: 38px;
+    border-radius: 10px;
+    border: none;
+}
+
+span#visivel{
+    float: right;
+    padding: 0;
+    margin-right: -30px;
+    left: 0px;
+    color: antiquewhite;
+    text-shadow: 1px 1px 2px black;
+    cursor: pointer;
+}
+
+button[type = 'submit']{
+    float: none;
+    display: block;
+    margin: auto;
+    width: 200px;
+    height: 45px;
+    font-size: 25px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 1px 2px black;
+    cursor: pointer;
+}
+
+button[type = 'submit']:hover{
+    transition: 1s;
+    transform: translate(-5px, -5px);
+    box-shadow: 2px 2px 6px black;
+}
+
+span.material-symbols-outlined{
+    position: relative;
+    float: left;
+    font-size: 30px;
+    top: 0;
+}
