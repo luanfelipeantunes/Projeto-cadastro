@@ -15,13 +15,13 @@
         <h2>Cadastre-se</h2>
         <form action="cadastro.php" method="get">
             <label for="name"><span>Nome:</span>
-            <input type="text" maxlength="32" placeholder="Seu Nome" required></label><br>
+            <input type="text" name="name" id="name" maxlength="32" placeholder="Seu Nome" required></label><br>
 
             <label for="sobrenome"><span>Sobrenome:</span> 
-            <input type="text" maxlength="32" placeholder="Seu Sobrenome" required></label><br>
+            <input type="text" name="sobrenome" id="sobrenome" maxlength="32" placeholder="Seu Sobrenome" required></label><br>
 
             <label for="email"><span>E-mail:</span> 
-            <input type="email" required></label><br>
+            <input type="email" name="email" id="email" required></label><br>
 
             <label for="senha"><span>Senha: <span class="material-symbols-outlined" id="visivel" onclick="senhaVisivel()">visibility_off</span></span> 
             <input type="password" id="senha" name="senha" required></label><br>
