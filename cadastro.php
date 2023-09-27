@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <main>
-
-
-
         <?php
 
-        $conexao = new mysqli('localhost', "root", "123456", 'pessoas');
+        $conexao = new mysqli('localhost', "root", "123456", 'cadastro');
         if ($conexao->connect_error) {
             die("Erro na conexão" . $conexao->connect_error);
         }
 
-        $stmt = $conexao->prepare("INSERT INTO usuários (nome, sobrenome, email, senha) VALUES (?,?,?,?)");
+        $stmt = $conexao->prepare("INSERT INTO users (nome, sobrenome, email, senha) VALUES (?,?,?,?)");
 
         $nome = $_REQUEST['nome'];
         $sobrenome = $_REQUEST['sobrenome'];
@@ -29,14 +14,15 @@
 
         $stmt->bind_param("ssss", $nome, $sobrenome, $email, $senha);
 
-        if ($stmt->execute()) {
-            echo "<p>Inserção bem-sucedida!!</p>";
-        } else {
-            echo "Erro na inserção: " . $smtp->error;
+        $stmt->execute();
+
+        if ($stmt->error) {
+            echo "<p>Houve um erro na inserção dos dados!!</p>";
+        }else{
+            header("Location: listagem.php");
         }
+
+        $conexao->close();
+
+
         ?>
-    </main>
-
-</body>
-
-</html>
