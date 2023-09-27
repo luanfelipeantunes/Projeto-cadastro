@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
+    
     <header>
         <h1>Cadastro de usuários</h1>
     </header>
@@ -21,12 +22,13 @@
             <input type="text" name="sobrenome" id="sobrenome" maxlength="32" placeholder="Seu Sobrenome" required></label><br>
 
             <label for="email"><span>E-mail:</span> 
-            <input type="email" name="email" id="email" required></label><br>
+            <input type="email" name="email" id="email" required></label>
+            <h5 class="erro">O email já existe</h5><br>
 
             <label for="senha"><span>Senha: <span class="material-symbols-outlined" id="visivel" onclick="senhaVisivel()">visibility_off</span></span> 
             <input type="password" id="senha" name="senha" required></label><br>
 
-            <button type="submit"><span id="avançar" class="material-symbols-outlined">login</span> Cadastrar</button>
+            <button type="submit" id="enviar"><span id="avançar" class="material-symbols-outlined">login</span> Cadastrar</button>
         </form>
     </main>
 
@@ -47,7 +49,29 @@ function senhaVisivel(){
         inputSenha.type = 'text';
     }
 }
+</script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var botaoEnviar = document.getElementById('enviar');
+    var inputEmail = document.getElementById('email');
+    $(".erro").hide();
+    $(document).ready(function(){
+        $("input[name = 'email']").blur(function(){
+            var emailVar = $(this).val();
+            $.post("verificaEmail.php", {email: emailVar}, function(resultado){
+                if(resultado === "existe"){
+                    $(".erro").show();
+                    botaoEnviar.disabled = true;
+                    inputEmail.style.border = '2px solid rgba(255, 0, 0, 0.8)';
+                    inputEmail.style.boxShadow = "1px 1px 4px black";
+                }else{
+                    $(".erro").hide();
+                    botaoEnviar.disabled = false;
+                }
+            });
+        });
+    });
 </script>
 
 </html>

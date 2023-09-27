@@ -66,9 +66,10 @@ span{
 input{
     float: right;
     font-size: 20px;
-    height: 38px;
+    height: 39px;
     border-radius: 10px;
     border: none;
+    box-sizing: border-box;
 }
 
 span#visivel{
@@ -125,4 +126,13 @@ td#borda-esquerda-arredondada{
 
 td#borda-direita-arredondada{
     border-top-right-radius: 20px;
+}
+
+.erro{
+    position: relative;
+    width: 110px;
+    margin: 2px auto auto auto;
+    color: rgba(255, 0, 0, 0.61);
+    text-shadow: 1px 1px 5px black;
+    left: 70px;
 }

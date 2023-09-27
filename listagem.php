@@ -17,8 +17,7 @@
             $conexao = new mysqli("localhost", "root", "123456", "cadastro");
 
             //listando os usuários
-            $consulta = "SELECT * FROM users";
-            $resultado = $conexao->query($consulta);
+            $resultado = $conexao->query("SELECT * FROM users");
 
             echo "<tr>";
             echo "<td id='borda-esquerda-arredondada'>Nome</td>";

@@ -2,7 +2,7 @@
 
         $conexao = new mysqli('localhost', "root", "123456", 'cadastro');
         if ($conexao->connect_error) {
-            die("Erro na conexão" . $conexao->connect_error);
+            log("Erro na conexão" . $conexao->connect_error);
         }
 
         $stmt = $conexao->prepare("INSERT INTO users (nome, sobrenome, email, senha) VALUES (?,?,?,?)");
@@ -18,7 +18,7 @@
 
         if ($stmt->error) {
             echo "<p>Houve um erro na inserção dos dados!!</p>";
-        }else{
+        } else {
             header("Location: listagem.php");
         }
 
