@@ -8,8 +8,6 @@
 
     $resultado = $stmt->get_result();
 
-    $retorno;
-
     if($resultado->num_rows > 0){
         echo "existe";
     }else{
